@@ -1,0 +1,274 @@
+/* ==========================================
+   HEADER
+========================================== */
+
+
+.nuevo-articulo-header{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+}
+
+
+.nuevo-articulo-header h2{
+
+    color:#14532d;
+
+    font-weight:700;
+
+    margin:0;
+
+    font-size:30px;
+
+}
+
+
+.nuevo-articulo-header h2 i{
+
+    margin-right:10px;
+
+}
+
+
+.nuevo-articulo-header p{
+
+    margin-top:8px;
+
+    color:#64748b;
+
+}
+
+
+
+/* ==========================================
+   BOTON VOLVER ABAJO
+========================================== */
+
+
+.nuevo-articulo-actions{
+
+    width:850px;
+
+    max-width:100%;
+
+    margin:25px auto 0;
+
+    text-align:center;
+
+}
+
+
+.nuevo-articulo-actions .btn{
+
+    padding:11px 30px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   CARD FORMULARIO
+========================================== */
+
+
+.articulo-form-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.08);
+
+
+    width:850px;
+
+    max-width:100%;
+
+
+    margin:0 auto;
+
+}
+
+/* ==========================================
+   LABELS
+========================================== */
+
+
+.articulo-form-card label{
+
+
+    display:block;
+
+
+    font-weight:600;
+
+
+    color:#334155;
+
+
+    margin-bottom:8px;
+
+
+}
+
+
+.articulo-form-card label i{
+
+
+    color:#16a34a;
+
+
+    margin-right:6px;
+
+
+}
+
+
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+
+.articulo-form-card .form-control,
+.articulo-form-card .form-select{
+
+
+    padding:12px;
+
+
+    border-radius:10px;
+
+
+}
+
+
+.articulo-form-card .form-control:focus,
+.articulo-form-card .form-select:focus{
+
+
+    border-color:#22c55e;
+
+
+    box-shadow:
+
+    0 0 0 .2rem rgba(34,197,94,.15);
+
+
+}
+
+
+
+
+
+.input-group-text{
+
+
+    background:#166534;
+
+
+    color:white;
+
+
+    border:none;
+
+
+}
+
+
+
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+
+.form-actions{
+
+
+    display:flex;
+
+
+    gap:10px;
+
+
+}
+
+
+
+.form-actions .btn-success{
+
+
+    background:#16a34a;
+
+
+    border:none;
+
+
+    padding:12px 25px;
+
+
+}
+
+
+.form-actions .btn-success:hover{
+
+
+    background:#15803d;
+
+
+}
+
+
+.form-actions .btn{
+
+
+    border-radius:10px;
+
+
+}
+
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+
+@media(max-width:768px){
+
+
+.nuevo-articulo-header{
+
+
+    flex-direction:column;
+
+
+    align-items:flex-start;
+
+
+    gap:15px;
+
+
+}
+
+
+.articulo-form-card{
+
+
+    padding:20px;
+
+}
+
+
+}

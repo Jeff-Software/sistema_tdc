@@ -1,0 +1,189 @@
+/* ==========================================
+   HEADER NUEVO CLIENTE
+========================================== */
+
+.nuevo-cliente-header{
+
+    margin-bottom:25px;
+
+}
+
+
+.nuevo-cliente-header h2{
+
+    color:#14532d;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+
+.nuevo-cliente-header h2 i{
+
+    margin-right:10px;
+
+}
+
+
+.nuevo-cliente-header p{
+
+    color:#64748b;
+
+    margin-top:5px;
+
+}
+
+
+
+/* ==========================================
+   FORMULARIO
+========================================== */
+
+
+.cliente-form-card{
+
+    background:white;
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+
+/* ==========================================
+   LABELS
+========================================== */
+
+
+.cliente-form-card label{
+
+    font-weight:600;
+
+    color:#334155;
+
+    margin-bottom:8px;
+
+}
+
+
+.cliente-form-card label i{
+
+    color:#16a34a;
+
+    margin-right:6px;
+
+}
+
+
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+
+.cliente-form-card .form-control{
+
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #cbd5e1;
+
+}
+
+
+.cliente-form-card .form-control:focus{
+
+
+    border-color:#22c55e;
+
+    box-shadow:
+
+    0 0 0 .2rem rgba(34,197,94,.15);
+
+}
+
+
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+
+.cliente-actions{
+
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:25px;
+
+}
+
+
+
+.cliente-actions .btn{
+
+
+    padding:11px 25px;
+
+    border-radius:10px;
+
+}
+
+
+
+.btn-guardar-cliente{
+
+
+    background:#16a34a;
+
+    color:white;
+
+    border:none;
+
+}
+
+
+
+.btn-guardar-cliente:hover{
+
+
+    background:#15803d;
+
+    color:white;
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+
+@media(max-width:768px){
+
+
+.cliente-form-card{
+
+    padding:20px;
+
+}
+
+
+}

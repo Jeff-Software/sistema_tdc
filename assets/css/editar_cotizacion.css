@@ -1,0 +1,513 @@
+/* =====================================================
+   EDITAR COTIZACIÓN
+===================================================== */
+
+/* Tarjetas */
+
+.card{
+
+    border:none;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.card-header{
+
+    background:#198754;
+    color:#fff;
+    border:none;
+    font-weight:600;
+
+}
+
+.card-header strong{
+
+    font-size:1rem;
+
+}
+
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+
+.form-label{
+
+    font-weight:600;
+    color:#495057;
+
+}
+
+.form-control,
+.form-select{
+
+    border-radius:8px;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#198754;
+    box-shadow:0 0 0 .20rem rgba(25,135,84,.18);
+
+}
+
+/* Campos readonly */
+
+.form-control[readonly]{
+
+    background:#f8f9fa;
+
+}
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.btn{
+
+    border-radius:8px;
+    transition:.20s;
+
+}
+
+.btn-success:hover{
+
+    transform:translateY(-1px);
+
+}
+
+.btn-outline-primary{
+
+    border-color:#198754;
+    color:#198754;
+
+}
+
+.btn-outline-primary:hover{
+
+    background:#198754;
+    border-color:#198754;
+    color:#fff;
+
+}
+
+/* =====================================================
+   TARJETA DETALLE
+===================================================== */
+
+#cantidadArticulos{
+
+    color:#198754;
+    font-weight:700;
+
+}
+
+.bi-box-seam{
+
+    color:#198754 !important;
+
+}
+
+.border-end{
+
+    border-color:#dee2e6 !important;
+
+}
+
+/* Tabla resumen */
+
+.card-body .table{
+
+    margin-bottom:0;
+
+}
+
+.card-body .table th{
+
+    font-weight:600;
+
+}
+
+.card-body .table td{
+
+    font-weight:500;
+
+}
+
+.table-primary{
+
+    background:#198754 !important;
+    color:#fff;
+
+}
+
+.table-primary th{
+
+    background:#198754 !important;
+    color:#fff;
+
+}
+
+/* =====================================================
+   MODALES
+===================================================== */
+
+.modal-content{
+
+    border:none;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 12px 35px rgba(0,0,0,.20);
+
+}
+
+.modal-header,
+.modal-header-green{
+
+    background:#198754;
+    color:#fff;
+    border:none;
+
+}
+
+.modal-title{
+
+    font-weight:600;
+
+}
+
+.modal-body{
+
+    background:#fbfcfb;
+
+}
+
+.modal-footer{
+
+    background:#fbfcfb;
+    border-top:1px solid #e9ecef;
+
+}
+
+/* =====================================================
+   BUSCADORES
+===================================================== */
+
+.input-group-text{
+
+    background:#198754;
+    color:#fff;
+    border-color:#198754;
+
+}
+
+.input-group .form-control{
+
+    border-left:0;
+
+}
+
+/* =====================================================
+   TABLAS
+===================================================== */
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+.table thead{
+
+    background:#198754;
+    color:#fff;
+
+}
+
+.table thead th{
+
+    border:none;
+    vertical-align:middle;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:5;
+
+}
+
+.table tbody td{
+
+    vertical-align:middle;
+
+}
+
+.table tbody tr{
+
+    transition:.15s;
+
+}
+
+.table tbody tr:nth-child(even){
+
+    background:#fcfcfc;
+
+}
+
+.table tbody tr:hover{
+
+    background:#eaf7ef;
+
+}
+
+/* =====================================================
+   BOTONES TABLA
+===================================================== */
+
+.seleccionarCliente{
+
+    width:100%;
+    border-radius:8px;
+    font-weight:600;
+
+}
+
+.seleccionarCliente:hover{
+
+    transform:scale(1.04);
+
+}
+
+.eliminarEditar{
+
+    border-radius:8px;
+
+}
+
+/* =====================================================
+   INPUTS DEL MODAL DETALLE
+===================================================== */
+
+.cantidadEditar,
+.precioEditar{
+
+    text-align:center;
+
+}
+
+/* =====================================================
+   TABLAS CON SCROLL
+===================================================== */
+
+.table-responsive{
+
+    max-height:430px;
+    overflow-y:auto;
+
+}
+
+.table-responsive::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+.table-responsive::-webkit-scrollbar-track{
+
+    background:#edf0ef;
+
+}
+
+/* =====================================================
+   PAGINACIÓN
+===================================================== */
+
+.page-link{
+
+    color:#198754;
+
+}
+
+.page-item.active .page-link{
+
+    background:#198754;
+    border-color:#198754;
+
+}
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.badge{
+
+    font-size:.80rem;
+    padding:.45rem .70rem;
+
+}
+
+/* =====================================================
+   ANIMACIÓN SUAVE
+===================================================== */
+
+.card,
+.modal-content{
+
+    animation:fadeEditar .18s;
+
+}
+
+@keyframes fadeEditar{
+
+    from{
+
+        opacity:0;
+        transform:translateY(6px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+#btnBuscarCliente{
+
+    background:#ffffff;
+    color:#198754;
+    border:1px solid #198754;
+
+}
+
+#btnBuscarCliente:hover{
+
+    background:#198754;
+    color:#ffffff;
+
+}
+
+#btnAgregarArticulo{
+
+    background:#ffffff;
+    color:#198754;
+    border:1px solid #ffffff;
+    font-weight:600;
+
+}
+
+#btnAgregarArticulo:hover{
+
+    background:#eaf7ef;
+    color:#146c43;
+
+}
+
+#btnAgregarArticulo,
+#btnVerDetalle{
+
+    min-width:165px;
+    height:40px;
+
+}
+
+/* =========================================
+   BOTONES DEL DETALLE
+========================================= */
+
+#btnAgregarArticulo,
+#btnVerDetalle{
+
+    background:#ffffff;
+    color:#198754;
+    border:1px solid #ffffff;
+    font-weight:600;
+    border-radius:8px;
+    min-width:165px;
+    transition:.20s;
+
+}
+
+#btnAgregarArticulo:hover,
+#btnVerDetalle:hover{
+
+    background:#eaf7ef;
+    color:#146c43;
+    border-color:#ffffff;
+    transform:translateY(-1px);
+
+}
+
+#btnAgregarArticulo:focus,
+#btnVerDetalle:focus{
+
+    box-shadow:0 0 0 .20rem rgba(255,255,255,.35);
+
+}
+
+/* =========================================
+   ESTADÍSTICAS DEL DETALLE
+========================================= */
+
+.estadistica-articulo{
+
+    background:#ffffff;
+    border:1px solid #d9e8df;
+    border-radius:12px;
+    padding:18px 10px;
+    text-align:center;
+    transition:.25s;
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+
+}
+
+.estadistica-articulo:hover{
+
+    transform:translateY(-2px);
+    border-color:#198754;
+    box-shadow:0 8px 20px rgba(25,135,84,.12);
+
+}
+
+.estadistica-numero{
+
+    font-size:2rem;
+    font-weight:700;
+    color:#198754;
+    line-height:1;
+
+}
+
+.estadistica-texto{
+
+    margin-top:8px;
+    color:#6c757d;
+    font-size:.95rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+
+}
+
+/* Línea divisoria */
+
+.border-end{
+
+    border-right:1px solid #e8ecef !important;
+
+}
+
+/* Ícono */
+
+.card-body .bi-box-seam{
+
+    color:#198754 !important;
+    opacity:.95;
+
+}

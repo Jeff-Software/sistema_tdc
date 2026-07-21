@@ -1,0 +1,169 @@
+/* ==========================================
+   HEADER
+========================================== */
+
+
+.editar-articulo-header{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.editar-articulo-header h2{
+
+    color:#14532d;
+
+    font-weight:700;
+
+    font-size:30px;
+
+}
+
+
+.editar-articulo-header h2 i{
+
+    margin-right:10px;
+
+}
+
+
+.editar-articulo-header p{
+
+    color:#64748b;
+
+}
+
+
+
+
+/* ==========================================
+   FORMULARIO
+========================================== */
+
+
+.articulo-editar-card{
+
+
+    width:850px;
+
+    max-width:100%;
+
+    margin:auto;
+
+
+    background:white;
+
+
+    padding:35px;
+
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.08);
+
+
+}
+
+
+
+/* ==========================================
+   LABELS
+========================================== */
+
+
+.articulo-editar-card label{
+
+
+    font-weight:600;
+
+    color:#334155;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.articulo-editar-card label i{
+
+
+    color:#16a34a;
+
+}
+
+
+
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+
+.articulo-editar-card .form-control,
+.articulo-editar-card .form-select{
+
+
+    padding:12px;
+
+    border-radius:10px;
+
+
+}
+
+
+.articulo-editar-card .form-control:focus,
+.articulo-editar-card .form-select:focus{
+
+
+    border-color:#22c55e;
+
+
+    box-shadow:
+
+    0 0 0 .2rem rgba(34,197,94,.15);
+
+
+}
+
+
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+
+.editar-articulo-actions{
+
+
+    width:850px;
+
+    max-width:100%;
+
+
+    margin:25px auto 0;
+
+
+    text-align:center;
+
+}
+
+
+
+.editar-articulo-actions .btn{
+
+
+    padding:11px 35px;
+
+
+    border-radius:10px;
+
+
+    font-weight:600;
+
+}

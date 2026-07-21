@@ -1,0 +1,418 @@
+/* ==========================================
+   HEADER
+========================================== */
+
+.cotizaciones-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.cotizaciones-header h2{
+
+    margin:0;
+
+    color:#14532d;
+
+    font-weight:700;
+
+}
+
+.cotizaciones-header h2 i{
+
+    margin-right:10px;
+
+}
+
+.cotizaciones-header p{
+
+    margin:5px 0 0;
+
+    color:#64748b;
+
+}
+
+.cotizaciones-header .btn{
+
+    border-radius:10px;
+
+    padding:10px 18px;
+
+}
+
+/* =====================================
+   COTIZACIONES - ESTILOS TABLA
+===================================== */
+
+
+.tabla-cotizaciones{
+
+    font-size:14px;
+
+}
+
+
+/* columnas */
+
+.tabla-cotizaciones th{
+
+    white-space: nowrap;
+    padding:12px 10px;
+
+}
+
+
+.tabla-cotizaciones td{
+
+    padding:12px 10px;
+    vertical-align:middle;
+
+}
+
+
+/* Numero */
+
+.col-numero{
+
+    width:120px;
+    text-align:center;
+
+}
+
+
+/* Fecha */
+
+.col-fecha{
+
+    width:120px;
+
+}
+
+
+/* Cliente */
+
+.col-cliente{
+
+    min-width:200px;
+
+}
+
+
+/* Proyecto */
+
+.col-proyecto{
+
+    min-width:180px;
+
+}
+
+
+/* Total */
+
+.col-total{
+
+    width:120px;
+
+}
+
+
+/* Estado */
+
+.col-estado{
+
+    width:120px;
+
+}
+
+
+/* Guias */
+
+.col-guias{
+
+    width:80px;
+    text-align:center;
+
+}
+
+
+/* Usuario */
+
+.col-usuario{
+
+    width:150px;
+
+}
+
+
+/* Acciones */
+
+.col-acciones{
+
+    width:220px;
+    white-space:nowrap;
+
+}
+
+
+.tabla-cotizaciones .btn{
+
+    margin:0 2px;
+
+}
+
+/* ==========================================
+   FILTROS
+========================================== */
+
+.cotizaciones-filtros{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    margin-bottom:25px;
+
+    overflow:hidden;
+
+}
+
+.cotizaciones-filtros .card-body{
+
+    padding:25px;
+
+}
+
+.cotizaciones-filtros label{
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.cotizaciones-filtros .form-control,
+.cotizaciones-filtros .form-select{
+
+    border-radius:10px;
+
+    padding:11px 14px;
+
+}
+
+.cotizaciones-filtros .form-control:focus,
+.cotizaciones-filtros .form-select:focus{
+
+    border-color:#22c55e;
+
+    box-shadow:0 0 0 .2rem rgba(34,197,94,.15);
+
+}
+
+/* ==========================================
+   RESUMEN
+========================================== */
+
+.resumen-card{
+
+    background:#fff;
+
+    border:none;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+.resumen-card:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.resumen-card .card-body{
+
+    padding:22px;
+
+}
+
+.resumen-card h6{
+
+    color:#64748b;
+
+    font-weight:600;
+
+}
+
+.resumen-card h3{
+
+    color:#14532d;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   TABLA
+========================================== */
+
+.cotizaciones-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+}
+
+.tabla-verde{
+
+    background:#166534;
+
+    color:#fff;
+
+}
+
+.tabla-verde th{
+
+    background:#166534 !important;
+
+    color:#fff;
+
+    border:none;
+
+    font-weight:600;
+
+}
+
+.badge{
+
+    padding:7px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.tabla-cotizaciones .btn{
+
+    border-radius:8px;
+
+    padding:5px 10px;
+
+}
+
+/* ==========================================
+   BOTONES
+========================================== */
+
+.btn-buscar{
+
+    background:#166534;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:10px 18px;
+    font-weight:600;
+    transition:.25s;
+
+}
+
+.btn-buscar:hover{
+
+    background:#14532d;
+    color:#fff;
+
+}
+
+
+
+.btn-limpiar{
+
+    background:#64748b;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:10px 18px;
+    font-weight:600;
+    transition:.25s;
+
+}
+
+.btn-limpiar:hover{
+
+    background:#475569;
+    color:#fff;
+
+}
+
+
+
+.btn-ver{
+
+    background:#16a34a;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    transition:.25s;
+
+}
+
+.btn-ver:hover{
+
+    background:#15803d;
+    color:#fff;
+    transform:scale(1.05);
+
+}
+
+/*=========================================
+PAGINACIÓN
+=========================================*/
+
+.pagination .page-link{
+
+    color:#198754;
+    border-radius:8px;
+    margin:0 2px;
+    border:1px solid #d1d5db;
+
+}
+
+.pagination .page-link:hover{
+
+    background:#ecfdf5;
+    border-color:#198754;
+    color:#14532d;
+
+}
+
+.pagination .page-item.active .page-link{
+
+    background:#198754;
+    border-color:#198754;
+    color:#fff;
+
+}
+
+.pagination .page-item.disabled .page-link{
+
+    color:#9ca3af;
+
+}

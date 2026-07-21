@@ -1,0 +1,167 @@
+/* ==========================================
+   HEADER
+========================================== */
+
+.inactivos-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.inactivos-header h2{
+
+    color:#14532d;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+
+.inactivos-header h2 i{
+
+    margin-right:10px;
+
+}
+
+
+/* ==========================================
+   CARD TABLA
+========================================== */
+
+
+.articulos-inactivos-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================
+   TABLA ARTICULOS INACTIVOS
+========================================== */
+
+
+.articulos-inactivos-card table{
+
+    border-collapse:separate;
+
+    border-spacing:0;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+}
+
+
+
+.articulos-inactivos-card thead th{
+
+    background:linear-gradient(
+        135deg,
+        #15803d
+    );
+
+    color:white;
+
+    padding:15px;
+
+    font-weight:600;
+
+    border:none;
+
+}
+
+
+
+.articulos-inactivos-card tbody td{
+
+    padding:14px;
+
+    vertical-align:middle;
+
+}
+
+
+
+.articulos-inactivos-card tbody tr{
+
+    transition:.2s;
+
+}
+
+
+
+.articulos-inactivos-card tbody tr:hover{
+
+    background:#f0fdf4;
+
+}
+
+/* ==========================================
+   BOTON RESTAURAR
+========================================== */
+
+
+.btn-restaurar{
+
+    background:#15803d;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:7px 15px;
+
+    transition:.2s;
+
+}
+
+
+.btn-restaurar:hover{
+
+    background:#166534;
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+
+@media(max-width:768px){
+
+
+.inactivos-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+
+}
