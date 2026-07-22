@@ -66,6 +66,66 @@ if(modalNuevoClienteElemento){
 }
 
 // ==========================================
+// FORMATO TELEFONO NUEVO CLIENTE
+// ==========================================
+
+const nuevoTelefono =
+document.getElementById("nuevoTelefono");
+
+
+if(nuevoTelefono){
+
+
+    nuevoTelefono.addEventListener("input",function(){
+
+
+        let valor = this.value;
+
+
+        // quitar todo lo que no sea número
+
+        valor = valor.replace(/\D/g,"");
+
+
+        // máximo 9 números
+
+        valor = valor.substring(0,9);
+
+
+
+        // formato 999 999 999
+
+        if(valor.length > 6){
+
+            valor =
+            valor.substring(0,3)
+            + " "
+            + valor.substring(3,6)
+            + " "
+            + valor.substring(6);
+
+        }
+
+        else if(valor.length > 3){
+
+            valor =
+            valor.substring(0,3)
+            + " "
+            + valor.substring(3);
+
+        }
+
+
+
+        this.value = valor;
+
+
+    });
+
+
+}
+
+// ==========================================
 // MODAL DETALLE COTIZACIÓN
 // ==========================================
 
@@ -76,9 +136,11 @@ let modalDetalle;
 
 let paginaDetalle = 1;
 
-let limiteDetalle = 7;
+let limiteDetalle = 6;
 
 let detalleProductos = [];
+
+let clienteSeleccionado = null;
 
 // ==========================================
 // RENDERIZAR DETALLE COTIZACIÓN
@@ -411,9 +473,10 @@ if(guardarNuevoCliente){
 
         datos.append(
             "telefono",
-            document.getElementById("nuevoTelefono").value
+            document.getElementById("nuevoTelefono")
+            .value
+            .replace(/\s/g,"")
         );
-
 
         datos.append(
             "correo",
@@ -481,29 +544,87 @@ if(guardarNuevoCliente){
 // CARGAR CLIENTES
 // ==========================================
 
-function cargarClientes(){
-
-    let buscarCliente =
-    document.getElementById("buscarCliente").value;
+function cargarClientes(pagina=1){
 
 
-    fetch(
-        "buscar_clientes.php?buscar="
-        + encodeURIComponent(buscarCliente)
-    )
+let buscarCliente =
+document.getElementById("buscarCliente").value;
 
 
-    .then(res=>res.text())
+fetch(
+"buscar_clientes.php?buscar="
++encodeURIComponent(buscarCliente)
++"&pagina="+pagina
+)
 
 
-    .then(html=>{
+.then(res=>res.text())
 
-        document.getElementById("listaClientes").innerHTML = html;
 
-    });
+.then(html=>{
+
+
+document.getElementById("listaClientes").innerHTML=html;
+
+
+marcarClienteSeleccionado();
+
+
+cargarPaginacionClientes(pagina);
+
+
+});
 
 
 }
+
+function cargarPaginacionClientes(pagina){
+
+
+let buscarCliente =
+document.getElementById("buscarCliente").value;
+
+
+
+fetch(
+"paginacion_clientes_cotizacion.php?buscar="
++encodeURIComponent(buscarCliente)
++"&pagina="+pagina
+)
+
+.then(res=>res.text())
+
+.then(html=>{
+
+
+document.getElementById(
+"paginacionClientesCotizacion"
+)
+.innerHTML=html;
+
+
+});
+
+
+}
+
+document.addEventListener("click",function(e){
+
+
+if(e.target.classList.contains("paginaClienteCotizacion")){
+
+
+let pagina =
+e.target.dataset.pagina;
+
+
+cargarClientes(pagina);
+
+
+}
+
+
+});
 
 // ==========================================
 // CARGAR FILTROS ARTÍCULOS
@@ -825,8 +946,24 @@ function calcularTotales(){
 
 
     // cantidad de artículos
-    document.getElementById("cantidadArticulos").innerHTML =
-    detalleProductos.length + " artículos agregados";
+    let unidades = 0;
+
+
+    detalleProductos.forEach(function(articulo){
+
+        unidades += articulo.cantidad;
+
+    });
+
+
+
+    document.getElementById("cantidadItems").innerHTML =
+    detalleProductos.length;
+
+
+
+    document.getElementById("cantidadUnidades").innerHTML =
+    unidades.toFixed(2);
 
 
 
@@ -933,9 +1070,12 @@ document.getElementById("buscarCliente");
 if(buscarCliente){
 
     buscarCliente.addEventListener(
-        "keyup",
-        cargarClientes
-    );
+    "keyup",
+    function(){
+
+        cargarClientes(1);
+
+    });
 
 }
 
@@ -955,15 +1095,16 @@ if(buscarCliente){
 // SELECCIONAR CLIENTE
 // ==========================================
 
-
 document.addEventListener("click",function(e){
-
 
     if(e.target.closest(".seleccionarCliente")){
 
 
         let boton =
         e.target.closest(".seleccionarCliente");
+
+
+        clienteSeleccionado = boton.dataset.id;
 
 
         document.getElementById("clienteNombre").value =
@@ -974,17 +1115,66 @@ document.addEventListener("click",function(e){
         boton.dataset.id;
 
 
-        if(modalClientes){
-
-            modalClientes.hide();
-
-        }
+        marcarClienteSeleccionado();
 
 
     }
 
 
 });
+
+function marcarClienteSeleccionado(){
+
+
+document.querySelectorAll(".seleccionarCliente")
+.forEach(function(boton){
+
+
+    if(boton.dataset.id == clienteSeleccionado){
+
+
+        boton.disabled=true;
+
+
+        boton.classList.remove("btn-success");
+
+        boton.classList.add("btn-secondary");
+
+
+        boton.innerHTML =
+        '<i class="bi bi-check-lg"></i> Seleccionado';
+
+
+        boton.closest("tr")
+        .classList.add("table-secondary");
+
+
+    }else{
+
+
+        boton.disabled=false;
+
+
+        boton.classList.remove("btn-secondary");
+
+        boton.classList.add("btn-success");
+
+
+        boton.innerHTML =
+        '<i class="bi bi-check"></i> Seleccionar';
+
+
+        boton.closest("tr")
+        .classList.remove("table-secondary");
+
+
+    }
+
+
+});
+
+
+}
 
 document.addEventListener("click",function(e){
 

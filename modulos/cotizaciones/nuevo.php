@@ -229,19 +229,78 @@ $clientes = $conexion->query($sqlClientes);
 
         <!-- MITAD IZQUIERDA -->
 
-        <div class="col-md-7 resumen-articulos text-center border-end">
+        <div class="col-md-7 resumen-articulos text-center border-end pe-4">
 
 
             <i class="bi bi-box-seam display-5"></i>
 
 
-            <h4
-            class="mt-3 mb-2"
-            id="cantidadArticulos">
+            <h4 class="mt-3 mb-4">
 
-                0 artículos agregados
+                Artículos agregados
 
             </h4>
+
+
+            <div class="row g-3">
+
+
+            <div class="col-6">
+
+            <div class="estadistica-articulo">
+
+
+            <div 
+            class="estadistica-numero"
+            id="cantidadItems">
+
+            0
+
+            </div>
+
+
+            <div class="estadistica-texto">
+
+            Ítems
+
+            </div>
+
+
+            </div>
+
+            </div>
+
+
+
+            <div class="col-6">
+
+
+            <div class="estadistica-articulo">
+
+
+            <div
+            class="estadistica-numero"
+            id="cantidadUnidades">
+
+            0.00
+
+            </div>
+
+
+            <div class="estadistica-texto">
+
+            Unidades
+
+            </div>
+
+
+            </div>
+
+
+            </div>
+
+
+            </div>
 
             <p class="text-muted mb-0">
 
@@ -256,7 +315,7 @@ $clientes = $conexion->query($sqlClientes);
 
         <!-- MITAD DERECHA -->
 
-        <div class="col-md-5">
+        <div class="col-md-5 ps-4">
 
 
             <table class="table table-sm mb-0 tabla-resumen-cotizacion">
@@ -484,6 +543,12 @@ Acción
 
 </table>
 
+<div 
+id="paginacionClientesCotizacion"
+class="mt-3 text-center">
+
+</div>
+
 
 </div>
 
@@ -580,7 +645,9 @@ Cerrar
                 type="text"
                 id="nuevoTelefono"
                 class="form-control"
-                placeholder="987654321">
+                maxlength="11"
+                inputmode="numeric"
+                placeholder="999 999 999">
 
         </div>
 

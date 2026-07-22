@@ -9,6 +9,48 @@ require_once "../../includes/layout_inicio.php";
 <?php
 
 require_once "../../config/conexion.php";
+require_once "../../includes/filtros.php";
+
+// =====================================
+// LIMPIAR FILTROS ARTÍCULOS
+// =====================================
+
+if(isset($_GET["limpiar"])){
+
+    guardarFiltroArticulos(
+        "",
+        "recientes",
+        1
+    );
+
+    header("Location:index.php");
+    exit;
+
+}
+
+$filtros = obtenerFiltroArticulos();
+
+if(empty($_GET)){
+
+    $_GET["buscar"] = $filtros["buscar"];
+
+    $_GET["orden"] = $filtros["orden"];
+
+    $_GET["pagina"] = $filtros["pagina"];
+
+}else{
+
+    guardarFiltroArticulos(
+
+        $_GET["buscar"] ?? "",
+
+        $_GET["orden"] ?? "recientes",
+
+        $_GET["pagina"] ?? 1
+
+    );
+
+}
 
 ?>
 
@@ -45,85 +87,101 @@ Nuevo artículo
 
 <form method="GET" class="mb-3">
 
-    <div class="input-group">
+<div class="row">
 
-        <span class="input-group-text">
-            <i class="bi bi-search"></i>
-        </span>
+    <div class="col-md-8">
 
-        <input
-            type="text"
-            name="buscar"
-            class="form-control"
-            placeholder="Buscar por descripción o familia..."
-            value="<?= $_GET["buscar"] ?? "" ?>">
+        <div class="input-group">
 
-        <button class="btn btn-outline-secondary">
-            Buscar
-        </button>
+            <span class="input-group-text">
+
+                <i class="bi bi-search"></i>
+
+            </span>
+
+            <input
+                type="text"
+                name="buscar"
+                class="form-control"
+                placeholder="Buscar por descripción o familia..."
+                value="<?= htmlspecialchars($_GET["buscar"] ?? "") ?>">
+
+            <button
+                type="submit"
+                class="btn btn-outline-secondary">
+
+                <i class="bi bi-search"></i>
+
+                Buscar
+
+            </button>
+
+            <a
+            href="index.php?limpiar=1"
+            class="btn btn-outline-danger">
+
+            <i class="bi bi-x-circle"></i>
+
+            Limpiar
+
+            </a>
+
+        </div>
 
     </div>
 
-</form>
+    <div class="col-md-4">
 
+        <select
+            name="orden"
+            class="form-select"
+            onchange="this.form.submit()">
 
-<form method="GET" class="mb-3">
+            <option
+                value="recientes"
+                <?= ($_GET["orden"] ?? "recientes")=="recientes" ? "selected" : "" ?>>
 
-<input type="hidden" name="buscar" value="<?= $_GET["buscar"] ?? "" ?>">
+                Más recientes
 
+            </option>
 
-<div class="row">
+            <option
+                value="nombre"
+                <?= ($_GET["orden"] ?? "")=="nombre" ? "selected" : "" ?>>
 
-<div class="col-md-4">
+                Nombre A-Z
 
+            </option>
 
-<label class="form-label">
-Ordenar por:
-</label>
+            <option
+                value="familia"
+                <?= ($_GET["orden"] ?? "")=="familia" ? "selected" : "" ?>>
 
+                Familia
 
-<select name="orden" 
-class="form-select"
-onchange="this.form.submit()">
+            </option>
 
+            <option
+                value="mayor"
+                <?= ($_GET["orden"] ?? "")=="mayor" ? "selected" : "" ?>>
 
-<option value="recientes"
-<?= ($_GET["orden"] ?? "") == "recientes" ? "selected" : "" ?>>
-Más recientes
-</option>
+                Mayor precio
 
+            </option>
 
-<option value="nombre"
-<?= ($_GET["orden"] ?? "") == "nombre" ? "selected" : "" ?>>
-Nombre A-Z
-</option>
+            <option
+                value="menor"
+                <?= ($_GET["orden"] ?? "")=="menor" ? "selected" : "" ?>>
 
+                Menor precio
 
-<option value="familia"
-<?= ($_GET["orden"] ?? "") == "familia" ? "selected" : "" ?>>
-Familia
-</option>
+            </option>
 
+        </select>
 
-<option value="mayor"
-<?= ($_GET["orden"] ?? "") == "mayor" ? "selected" : "" ?>>
-Mayor precio
-</option>
-
-
-<option value="menor"
-<?= ($_GET["orden"] ?? "") == "menor" ? "selected" : "" ?>>
-Menor precio
-</option>
-
-
-</select>
-
+    </div>
 
 </div>
-
-</div>
-
 
 </form>
 
@@ -159,7 +217,7 @@ $buscar = trim($_GET["buscar"] ?? "");
 
 $orden = $_GET["orden"] ?? "recientes";
 
-$registros_por_pagina = 7;
+$registros_por_pagina = 8;
 
 $pagina = isset($_GET["pagina"]) ? (int)$_GET["pagina"] : 1;
 

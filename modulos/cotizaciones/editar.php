@@ -680,9 +680,11 @@ $resultadoDetalle = $conexion->query($sqlDetalle);
     name="total"
     value="<?= $cotizacion["total"] ?>">
 
-    </div>
+</div>
 
 </div>
+
+</form>
 
 <!-- ========================================= -->
 <!-- MODAL DETALLE EDICIÓN -->
@@ -874,29 +876,36 @@ Acción
 </thead>
 
 <tbody id="listaClientes">
-
 </tbody>
 
 </table>
 
+<div
+    id="paginacionClientesCotizacion"
+    class="mt-3 text-center">
 </div>
 
 </div>
+
+</div>
+
 
 <div class="modal-footer">
 
 <button 
-type="button" class="btn btn-secondary" 
-data-bs-dismiss="modal"> 
-Cerrar 
+type="button"
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Cerrar
+
 </button>
 
 </div>
 
-</div>
 
 </div>
-
+</div>
 </div>
 
 
@@ -1017,51 +1026,32 @@ data-bs-dismiss="modal">
 
 </tbody>
 
-
 </table>
 
-</div>
+<div id="paginacionArticulos" class="mt-3 text-center"></div>
 
+</div> <!-- table-responsive -->
 
-<!-- PAGINACIÓN -->
-
-
-<div
-id="paginacionArticulos"
-class="mt-3">
-
-
-</div>
-
-
-
-</div>
-
-
+</div> <!-- modal-body -->
 
 <div class="modal-footer">
 
+    <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal">
 
-<button
-type="button"
-class="btn btn-secondary"
-data-bs-dismiss="modal">
+        Cerrar
 
-Cerrar
-
-</button>
-
+    </button>
 
 </div>
 
+</div> <!-- modal-content -->
 
-</div>
+</div> <!-- modal-dialog -->
 
-
-</div>
-
-
-</div>
+</div> <!-- modal -->
 
 </form>
 

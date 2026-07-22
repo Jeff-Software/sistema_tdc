@@ -5,43 +5,51 @@ require_once "../../config/conexion.php";
 
 $buscar = $_GET["buscar"] ?? "";
 
+$pagina = (int)($_GET["pagina"] ?? 1);
+
+if($pagina < 1){
+
+    $pagina = 1;
+
+}
+
+
+$limite = 7;
+
+$inicio = ($pagina-1)*$limite;
+
+
 
 $sql = "
-
-SELECT
+SELECT 
 id,
 ruc,
 razon_social,
 direccion
-
 FROM clientes
-
 WHERE estado = 1
-
 AND
 (
 ruc LIKE ?
-OR
-razon_social LIKE ?
+OR razon_social LIKE ?
 )
-
-ORDER BY razon_social ASC
-
-LIMIT 20
-
+ORDER BY razon_social
+LIMIT ?,?
 ";
 
 
 $stmt = $conexion->prepare($sql);
 
 
-$buscar = "%".$buscar."%";
+$texto = "%".$buscar."%";
 
 
 $stmt->bind_param(
-    "ss",
-    $buscar,
-    $buscar
+"ssii",
+$texto,
+$texto,
+$inicio,
+$limite
 );
 
 
@@ -52,7 +60,7 @@ $resultado = $stmt->get_result();
 
 
 
-while($cliente=$resultado->fetch_assoc()){
+while($fila=$resultado->fetch_assoc()){
 
 
 ?>
@@ -62,21 +70,21 @@ while($cliente=$resultado->fetch_assoc()){
 
 <td>
 
-<?= htmlspecialchars($cliente["ruc"]) ?>
+<?= $fila["ruc"] ?>
 
 </td>
 
 
 <td>
 
-<?= htmlspecialchars($cliente["razon_social"]) ?>
+<?= $fila["razon_social"] ?>
 
 </td>
 
 
 <td>
 
-<?= htmlspecialchars($cliente["direccion"]) ?>
+<?= $fila["direccion"] ?>
 
 </td>
 
@@ -88,15 +96,19 @@ while($cliente=$resultado->fetch_assoc()){
 type="button"
 class="btn btn-success btn-sm seleccionarCliente"
 
-data-id="<?= $cliente["id"] ?>"
+data-id="<?= $fila["id"] ?>"
 
-data-nombre="<?= $cliente["razon_social"] ?>"
+data-nombre="<?= $fila["razon_social"] ?>"
 
-data-ruc="<?= $cliente["ruc"] ?>"
+data-ruc="<?= $fila["ruc"] ?>"
 
 >
 
+
+<i class="bi bi-check"></i>
+
 Seleccionar
+
 
 </button>
 

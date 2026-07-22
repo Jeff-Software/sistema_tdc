@@ -641,10 +641,17 @@ if(btnBuscarCliente){
 
 }
 // =========================================
-// CARGAR CLIENTES
+// CARGAR CLIENTES CON PAGINACIÓN
 // =========================================
 
-function cargarClientes(){
+let paginaClientes = 1;
+
+
+function cargarClientes(pagina = 1){
+
+
+    paginaClientes = pagina;
+
 
     fetch(
 
@@ -656,15 +663,66 @@ function cargarClientes(){
 
         )
 
+        +
+
+        "&pagina=" + pagina
+
+
     )
 
     .then(res => res.text())
 
     .then(html => {
 
+
         document.getElementById("listaClientes").innerHTML = html;
 
+
+        cargarPaginacionClientes(pagina);
+
+
     });
+
+
+}
+
+// =========================================
+// PAGINACIÓN CLIENTES
+// =========================================
+
+
+function cargarPaginacionClientes(pagina = 1){
+
+    fetch(
+
+        "paginacion_clientes_cotizacion.php?buscar=" +
+
+        encodeURIComponent(
+
+            document.getElementById("buscarCliente").value
+
+        )
+
+        +
+
+        "&pagina=" + pagina
+
+    )
+
+
+    .then(res => res.text())
+
+
+    .then(html => {
+
+
+        document.getElementById(
+            "paginacionClientesCotizacion"
+        ).innerHTML = html;
+
+
+    });
+
 
 }
 
@@ -675,7 +733,7 @@ if(buscarCliente){
 
     buscarCliente.addEventListener("keyup",function(){
 
-        cargarClientes();
+        cargarClientes(1);
 
     });
 
@@ -1084,5 +1142,25 @@ cargarDetalleModal(
     parseInt(boton.dataset.pagina)
 );
 
+
+});
+
+// =========================================
+// CLICK PAGINACIÓN CLIENTES
+// =========================================
+
+document.addEventListener("click",function(e){
+
+    const boton = e.target.closest(".paginaClienteCotizacion");
+
+    if(!boton){
+        return;
+    }
+
+    e.preventDefault();
+
+    e.stopPropagation();
+
+    cargarClientes(parseInt(boton.dataset.pagina));
 
 });
